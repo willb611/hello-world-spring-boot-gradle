@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: hello-spring-boot-gradle
+
+server:
+  error:
+    whitelabel:
+      enabled: false
