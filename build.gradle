@@ -7,11 +7,15 @@ plugins {
     id("org.kordamp.gradle.project-enforcer") version "0.14.0"
 }
 
-group = 'com.github.willb611'
-version = '0.0.1-SNAPSHOT'
 ext {
     logbackVersion = '1.5.9'
+    lombokVersion = '1.18.34'
+    springBootVersion = '3.3.4'
 }
+
+
+group = 'com.github.willb611'
+version = '0.0.1-SNAPSHOT'
 
 java {
     toolchain {
@@ -39,9 +43,9 @@ enforce {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
     implementation "ch.qos.logback.access:common:2.0.3"
     implementation ("ch.qos.logback.access:tomcat:2.0.3") {
@@ -52,8 +56,8 @@ dependencies {
     implementation "ch.qos.logback:logback-core:${logbackVersion}"
     implementation "ch.qos.logback:logback-classic:${logbackVersion}"
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher:1.11.2"
     testImplementation 'io.rest-assured:rest-assured:5.5.0'
 }
 
