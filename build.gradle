@@ -2,7 +2,7 @@ import enforcer.rules.BanDuplicateClasses
 
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.3.4'
+    id 'org.springframework.boot' version '3.4.0-M2'
     id 'io.spring.dependency-management' version '1.1.6'
     id("org.kordamp.gradle.project-enforcer") version "0.14.0"
 }
@@ -10,7 +10,7 @@ plugins {
 ext {
     logbackVersion = '1.5.9'
     lombokVersion = '1.18.34'
-    springBootVersion = '3.3.4'
+    springBootVersion = '3.4.0-M2'
 }
 
 
@@ -31,6 +31,9 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://repo.spring.io/milestone'
+    }
 }
 
 enforce {
