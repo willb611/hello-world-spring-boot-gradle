@@ -8,9 +8,10 @@ plugins {
 }
 
 ext {
-    logbackVersion = '1.5.9'
-    lombokVersion = '1.18.34'
-    springBootVersion = '3.3.4'
+    logbackVersion = '1.5.18'
+    logbackAccessVersion = '2.0.6'
+    lombokVersion = '1.18.38'
+    springBootVersion = '3.5.4'
 }
 
 
@@ -47,12 +48,12 @@ dependencies {
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
-    implementation "ch.qos.logback.access:common:2.0.3"
-    implementation ("ch.qos.logback.access:tomcat:2.0.3") {
+    implementation "ch.qos.logback.access:logback-access-common:${logbackAccessVersion}"
+    implementation ("ch.qos.logback.access:logback-access-tomcat:${logbackAccessVersion}") {
         exclude group: 'org.apache.tomcat', module: 'tomcat-catalina'
         exclude group: 'org.apache.tomcat', module: 'tomcat-coyote'
     }
-    implementation "ch.qos.logback:logback-access:${logbackVersion}"
+    implementation "ch.qos.logback.access:logback-access-common:${logbackAccessVersion}"
     implementation "ch.qos.logback:logback-core:${logbackVersion}"
     implementation "ch.qos.logback:logback-classic:${logbackVersion}"
 
